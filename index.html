@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarjeta de San Valentín</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f9e3e3;
+        margin: 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      .card-container {
+        perspective: 1000px;
+      }
+
+      .card {
+        width: 300px;
+        height: 400px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+      }
+
+      .card .front,
+      .card .back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .card .front {
+        background-color: #ff6b6b;
+        color: white;
+      }
+
+      .card .back {
+        background-color: #ffcccc;
+        color: #333;
+        transform: rotateY(180deg);
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        background-color: #ff4757;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #ff6b81;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card" id="card">
+        <div class="front">
+          <h1>¡Feliz San Valentín!</h1>
+          <button onclick="openCard()">Abrir Tarjeta</button>
+        </div>
+        <div class="back">
+            <p>Para mi hermana,</p>
+            <p>Eres una de las personas más importantes en mi vida. Gracias por ser mi compañera, mi confidente y mi mejor amiga.</p>
+            <p>Te quiero mucho, hoy y siempre.</p>
+            <p>❤️</p>
+          <button onclick="closeCard()">Cerrar Tarjeta</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openCard() {
+        const card = document.getElementById("card");
+        card.style.transform = "rotateY(180deg)";
+      }
+
+      function closeCard() {
+        const card = document.getElementById("card");
+        card.style.transform = "rotateY(0deg)";
+      }
+    </script>
+  </body>
+</html>
